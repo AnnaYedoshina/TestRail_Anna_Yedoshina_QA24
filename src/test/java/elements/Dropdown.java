@@ -13,8 +13,8 @@ public class Dropdown {
         this.element = new MyElement(driver, by);
     }
 
-    public Dropdown(WebElement element) {
-        this.element = new MyElement(element);
+    public Dropdown(WebDriver driver, WebElement element) {
+        this.element = new MyElement(driver, element);
     }
 
     public Dropdown(WebDriver driver, String id) {

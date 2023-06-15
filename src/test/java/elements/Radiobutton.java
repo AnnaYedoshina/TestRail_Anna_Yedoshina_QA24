@@ -11,8 +11,8 @@ public class Radiobutton {
         this.element = new MyElement(driver, by);
     }
 
-    public Radiobutton(WebElement element) {
-        this.element = new MyElement(element);
+    public Radiobutton(WebDriver driver, WebElement element) {
+        this.element = new MyElement(driver, element);
     }
 
     public Radiobutton(WebDriver driver, String id) {

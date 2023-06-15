@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TestCasesTests extends BaseTest{
     @Test
     public void checkBoxesTest(){
-        loginPage.logIn();
+        loginPage.logIn(EMAIL,PASSWORD);
         allProjectsPage.clickTestCasesLink();
         testCasesPage.clickCheckbox();
 

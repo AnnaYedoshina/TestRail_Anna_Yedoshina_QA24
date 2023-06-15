@@ -26,7 +26,6 @@ public class TestCasesPage extends BasePage {
     }
     @Step
     public void clickCheckbox(){
-        new Checkbox(driver,checkBoxesLocator).selectCheckboxByIndex(1);
 
     }
 

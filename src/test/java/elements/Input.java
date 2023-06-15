@@ -11,8 +11,8 @@ public class Input {
         this.element = new MyElement(driver, by);
     }
 
-    public Input(WebElement element) {
-        this.element = new MyElement(element);
+    public Input(WebDriver driver, WebElement element) {
+        this.element = new MyElement(driver, element);
     }
 
     public Input(WebDriver driver, String id) {

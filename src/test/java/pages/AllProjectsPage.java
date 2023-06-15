@@ -11,6 +11,7 @@ public class AllProjectsPage extends BasePage {
     }
 
     public By testCasesLink = By.xpath("//*[@class = 'link' and contains(./text(), 'Test Cases')]");
+    public By projectLinkLocator = By.xpath("//a[text() = 'AnnaYedoshinaQA24']");
 
     @Step
     public boolean isTestCasesLinkDisplayed() {
@@ -20,6 +21,10 @@ public class AllProjectsPage extends BasePage {
     @Step
     public void clickTestCasesLink() {
         new Button(driver, testCasesLink).click();
+    }
+    @Step
+    public void openProjectByName(String projectName){
+        new Button(driver, projectLinkLocator).click();
 
     }
 }

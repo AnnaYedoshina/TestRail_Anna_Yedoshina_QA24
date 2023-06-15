@@ -16,7 +16,8 @@ public class MyElement implements WebElement {
         this.element = driver.findElement(this.by);
     }
 
-    public MyElement(WebElement element) {
+    public MyElement(WebDriver driver,WebElement element) {
+        this.driver = driver;
         this.element = element;
     }
 
@@ -72,7 +73,7 @@ public class MyElement implements WebElement {
         List<MyElement> result = new ArrayList<>();
         for (WebElement element : element.findElements(by)
         ) {
-            result.add(new MyElement(element));
+            result.add(new MyElement(driver, element));
         }
         return result;
     }

@@ -13,24 +13,31 @@ public class Checkbox {
         this.element = new MyElement(driver, by);
     }
 
-    public Checkbox(WebElement element) {
-        this.element = new MyElement(element);
+    public Checkbox(WebDriver driver, WebElement element) {
+        this.element = new MyElement(driver, element);
     }
 
     public Checkbox(WebDriver driver, String id) {
         this.element = new MyElement(driver, By.id(id));
     }
 
-    private List<MyElement> getAllCheckboxes() {
-        return element.findMyElements(By.cssSelector("td[class='checkbox']"));
-    }
-    public void checkedUnchecked() {
-        for (MyElement element : getAllCheckboxes()) {
-                element.click();
-                return;
-            }
+    public void check() {
+        if (!isChecked()) {
+            element.click();
         }
-    public void selectCheckboxByIndex(int index) {
-        getAllCheckboxes().get(index).click();
+
     }
+
+    public void unchecked() {
+        if (isChecked()) {
+            element.click();
+        }
     }
+
+    public boolean isChecked() {
+        element.isSelected();
+        return true;
+    }
+}
+
+

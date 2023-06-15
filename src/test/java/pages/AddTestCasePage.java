@@ -4,6 +4,7 @@ import elements.Button;
 import elements.Dropdown;
 import elements.Input;
 import io.qameta.allure.Step;
+import models.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -32,21 +33,23 @@ public class AddTestCasePage extends BasePage {
     }
 
     @Step
-    public void fillingOutTestCase() {
-        new Input(driver, titleInputId).setValue("Позитивное тестирование формы Login");
-        new Dropdown(driver, sectionDropdownLocator).selectOptionByText("Test Cases", false);
-        new Dropdown(driver, templateDropdownLocator).selectOptionByText("Test Case (Text)", false);
-        new Dropdown(driver, typeDropdownId).selectOptionByText("Other", false);
-        new Dropdown(driver, priorityDropdownLocator).selectOptionByText("Critical", false);
-        new Input(driver, estimateInputLocator).setValue("30");
-        new Input(driver, referencesInputId).setValue("qwe");
-        new Dropdown(driver, automationTypeDropdownId).selectOptionByText("None", false);
-        new Input(driver, preconditionsInputId).setValue("Открыта форма Login на сайте TestRail");
-        new Input(driver, stepsInputId).setValue("Заполнить поле email. Заполнить поле password. Нажать кнопку login");
-        new Input(driver, expectedResultInputId).setValue("Пользователь авторизован");
+    public void fillingOutTestCase(TestCase testCase) {
+        new Input(driver, titleInputId).setValue(testCase.getTitle());
+        new Dropdown(driver, sectionDropdownLocator).selectOptionByText(testCase.getSection(), false);
+        new Dropdown(driver, templateDropdownLocator).selectOptionByText(testCase.getTemplate(), false);
+        new Dropdown(driver, typeDropdownId).selectOptionByText(testCase.getType(), false);
+        new Dropdown(driver, priorityDropdownLocator).selectOptionByText(testCase.getPriority(), false);
+        new Input(driver, estimateInputLocator).setValue(testCase.getEstimate());
+        new Input(driver, referencesInputId).setValue(testCase.getReferences());
+        new Dropdown(driver, automationTypeDropdownId).selectOptionByText(testCase.getAutomationType(), false);
+        new Input(driver, preconditionsInputId).setValue(testCase.getPreconditions());
+        new Input(driver, stepsInputId).setValue(testCase.getSteps());
+        new Input(driver, expectedResultInputId).setValue(testCase.getExpectedResult());
+    }
+
+    @Step
+    public void clickAddTestCaseButton(){
         new Button(driver, addTestCaseButtonId).click();
-
-
     }
 
 }

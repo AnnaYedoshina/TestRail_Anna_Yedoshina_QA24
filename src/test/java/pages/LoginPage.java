@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     private String loginButtonId = "button_primary";
 
     @Step
-    public void logIn() {
+    public void logIn(String email, String password) {
         new Input(driver, emailInputId).setValue("yedoshina.java@gmail.com");
         new Input(driver, passwordInputId).setValue("Anna6178!");
         new Button(driver, loginButtonId).click();
