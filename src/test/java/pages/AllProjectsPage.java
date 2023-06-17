@@ -22,8 +22,9 @@ public class AllProjectsPage extends BasePage {
     public void clickTestCasesLink() {
         new Button(driver, testCasesLink).click();
     }
+
     @Step
-    public void openProjectByName(String projectName){
+    public void openProjectByName(String projectName) {
         new Button(driver, projectLinkLocator).click();
 
     }

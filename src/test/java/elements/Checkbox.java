@@ -28,16 +28,16 @@ public class Checkbox {
 
     }
 
-    public void unchecked() {
+    public void uncheck() {
         if (isChecked()) {
             element.click();
         }
     }
 
     public boolean isChecked() {
-        element.isSelected();
-        return true;
+        return element.isSelected();
     }
 }
+
 
 

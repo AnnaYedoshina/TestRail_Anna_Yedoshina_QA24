@@ -8,11 +8,10 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 import utils.InvokedListener;
-import utils.TestLiner;
 
 import java.time.Duration;
 
-@Listeners({TestLiner.class, InvokedListener.class})
+@Listeners({InvokedListener.class})
 public abstract class BaseTest {
     private final static String URL = "https://ayqa24.testrail.io/";
     protected final static String EMAIL = "yedoshina.java@gmail.com";
@@ -21,8 +20,10 @@ public abstract class BaseTest {
     protected LoginPage loginPage;
     protected AllProjectsPage allProjectsPage;
     protected AddTestCasePage addTestCasePage;
-    protected TestCasesPage testCasesPage;
+    protected ProjectPage projectPage;
     protected AddedTestCasePage addedTestCasePage;
+    protected TestCasesPage testCasesPage;
+    protected AddTestRunPage addTestRunPage;
 
     @Parameters({"browserName"})
     @BeforeClass(alwaysRun = true)
@@ -39,9 +40,12 @@ public abstract class BaseTest {
         context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
         allProjectsPage = new AllProjectsPage(driver);
-        testCasesPage = new TestCasesPage(driver);
+        projectPage = new ProjectPage(driver);
         addTestCasePage = new AddTestCasePage(driver);
         addedTestCasePage = new AddedTestCasePage(driver);
+        testCasesPage = new TestCasesPage(driver);
+        addTestRunPage = new AddTestRunPage(driver);
+
     }
 
     @AfterClass(alwaysRun = true)

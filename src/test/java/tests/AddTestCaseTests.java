@@ -3,6 +3,7 @@ package tests;
 import models.TestCase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.ProjectPage;
 
 public class AddTestCaseTests extends BaseTest {
     @Test
@@ -20,9 +21,9 @@ public class AddTestCaseTests extends BaseTest {
         testCase.setSteps("Заполнить поле email. Заполнить поле password. Нажать кнопку login");
         testCase.setExpectedResult("Пользователь авторизован");
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL,PASSWORD);
+        loginPage.logIn(EMAIL, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
-        testCasesPage.clickTestCasesLink();
+        projectPage.clickAddTestCasesLink();
         addTestCasePage.fillingOutTestCase(testCase);
         addTestCasePage.clickAddTestCaseButton();
         Assert.assertTrue(addedTestCasePage.isAddAnotherLinkDisplayed());

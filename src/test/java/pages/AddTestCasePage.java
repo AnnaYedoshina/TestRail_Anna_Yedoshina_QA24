@@ -48,7 +48,7 @@ public class AddTestCasePage extends BasePage {
     }
 
     @Step
-    public void clickAddTestCaseButton(){
+    public void clickAddTestCaseButton() {
         new Button(driver, addTestCaseButtonId).click();
     }
 

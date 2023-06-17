@@ -1,6 +1,5 @@
 package pages;
 
-import elements.Button;
 import elements.Checkbox;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -11,22 +10,23 @@ public class TestCasesPage extends BasePage {
         super(driver);
     }
 
-    public String addTestCaseButtonId = "sidebar-cases-add";
-    public By checkBoxesLocator = By.cssSelector("td[class='checkbox']");
+    public By checkBoxesLocator = By.cssSelector(".selectionCheckbox");
 
     @Step
-    public boolean isTestCaseButtonDisplayed() {
-        return driver.findElement(By.id(addTestCaseButtonId)).isDisplayed();
+    public void checkCheckbox() {
+        new Checkbox(driver, checkBoxesLocator).check();
+
     }
 
     @Step
-    public void clickTestCasesLink() {
-        new Button(driver, addTestCaseButtonId).click();
-
+    public void uncheckCheckbox() {
+        new Checkbox(driver, checkBoxesLocator).uncheck();
     }
+
     @Step
-    public void clickCheckbox(){
+    public boolean isCheckboxChecked() {
+        return new Checkbox(driver, checkBoxesLocator).isChecked();
 
     }
-
 }
+

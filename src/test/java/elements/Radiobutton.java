@@ -18,4 +18,13 @@ public class Radiobutton {
     public Radiobutton(WebDriver driver, String id) {
         this.element = new MyElement(driver, By.id(id));
     }
+    public void check() {
+        if (!isChecked()) {
+            element.click();
+        }
+
+    }
+    public boolean isChecked() {
+        return element.isSelected();
+    }
 }

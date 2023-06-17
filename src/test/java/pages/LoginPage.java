@@ -20,8 +20,8 @@ public class LoginPage extends BasePage {
 
     @Step
     public void logIn(String email, String password) {
-        new Input(driver, emailInputId).setValue("yedoshina.java@gmail.com");
-        new Input(driver, passwordInputId).setValue("Anna6178!");
+        new Input(driver, emailInputId).setValue(email);
+        new Input(driver, passwordInputId).setValue(password);
         new Button(driver, loginButtonId).click();
     }
 
