@@ -15,6 +15,7 @@ public class ProjectPage extends BasePage {
     public String testCasesButtonId = "sidebar-cases-overview";
 
     public String addTestRunsButtonId = "sidebar-runs-add";
+    public String addMilestoneButtonId = "sidebar-milestones-add";
 
 
     @Step
@@ -36,6 +37,11 @@ public class ProjectPage extends BasePage {
     @Step
     public void clickAddTestRunsButton(){
         new Button(driver, addTestRunsButtonId).click();
+    }
+
+    @Step
+    public void clickAddMilestoneButton(){
+        new Button(driver, addMilestoneButtonId).click();
     }
 
 

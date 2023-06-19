@@ -13,7 +13,7 @@ public class TestCasesPage extends BasePage {
     public By checkBoxesLocator = By.cssSelector(".selectionCheckbox");
 
     @Step
-    public void checkCheckbox() {
+    public void checkCheckboxChooseAll() {
         new Checkbox(driver, checkBoxesLocator).check();
 
     }

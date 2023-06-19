@@ -24,6 +24,8 @@ public abstract class BaseTest {
     protected AddedTestCasePage addedTestCasePage;
     protected TestCasesPage testCasesPage;
     protected AddTestRunPage addTestRunPage;
+    protected AddMilestonePage addMilestonePage;
+    protected TestCaseInfoPage testCaseInfoPage;
 
     @Parameters({"browserName"})
     @BeforeClass(alwaysRun = true)
@@ -45,6 +47,8 @@ public abstract class BaseTest {
         addedTestCasePage = new AddedTestCasePage(driver);
         testCasesPage = new TestCasesPage(driver);
         addTestRunPage = new AddTestRunPage(driver);
+        addMilestonePage = new AddMilestonePage(driver);
+        testCaseInfoPage = new TestCaseInfoPage(driver);
 
     }
 

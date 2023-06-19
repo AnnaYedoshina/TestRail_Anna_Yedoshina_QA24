@@ -6,23 +6,23 @@ import org.testng.annotations.Test;
 public class TestCasesTests extends BaseTest {
 
     @Test
-    public void checkCheckBoxTest() {
+    public void checkCheckBoxChooseAllTest() {
         String projectName = "AnnaYedoshinaQA24";
         loginPage.logIn(EMAIL, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickTestCasesButton();
-        testCasesPage.checkCheckbox();
+        testCasesPage.checkCheckboxChooseAll();
         Assert.assertTrue(testCasesPage.isCheckboxChecked());
 
     }
 
     @Test
-    public void uncheckCheckboxTest() {
+    public void uncheckCheckboxChooseAllTest() {
         String projectName = "AnnaYedoshinaQA24";
         loginPage.logIn(EMAIL, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickTestCasesButton();
-        testCasesPage.checkCheckbox();
+        testCasesPage.checkCheckboxChooseAll();
         testCasesPage.uncheckCheckbox();
         Assert.assertFalse(testCasesPage.isCheckboxChecked());
 

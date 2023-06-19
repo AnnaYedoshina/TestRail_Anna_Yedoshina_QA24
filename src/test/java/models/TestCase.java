@@ -1,7 +1,23 @@
 package models;
 
+import java.util.Objects;
+
 public class TestCase {
     private String title;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TestCase testCase = (TestCase) o;
+        return Objects.equals(title, testCase.title) && Objects.equals(section, testCase.section) && Objects.equals(template, testCase.template) && Objects.equals(type, testCase.type) && Objects.equals(priority, testCase.priority) && Objects.equals(estimate, testCase.estimate) && Objects.equals(references, testCase.references) && Objects.equals(automationType, testCase.automationType) && Objects.equals(preconditions, testCase.preconditions) && Objects.equals(steps, testCase.steps) && Objects.equals(expectedResult, testCase.expectedResult);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, section, template, type, priority, estimate, references, automationType, preconditions, steps, expectedResult);
+    }
+
     private String section;
     private String template;
     private String type;
