@@ -3,10 +3,10 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AddTestRunPageTests extends BaseTest{
+public class AddTestRunPageTests extends BaseTest {
 
     @Test
-    public void checkSelectSpecificRadioTest(){
+    public void checkSelectSpecificRadioTest() {
         String projectName = "AnnaYedoshinaQA24";
         loginPage.logIn(EMAIL, PASSWORD);
         allProjectsPage.openProjectByName(projectName);

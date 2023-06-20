@@ -9,18 +9,19 @@ import pages.ProjectPage;
 public class AddTestCaseTests extends BaseTest {
     @Test
     public void positiveAddTestCaseTest() {
-        TestCase actualTestCase = new TestCase();
-        actualTestCase.setTitle("Позитивное тестирование формы Login");
-        actualTestCase.setSection("Test Cases");
-        actualTestCase.setTemplate("Test Case (Text)");
-        actualTestCase.setType("Other");
-        actualTestCase.setPriority("Critical");
-        actualTestCase.setEstimate("30 minutes");
-        actualTestCase.setReferences("qwe");
-        actualTestCase.setAutomationType("None");
-        actualTestCase.setPreconditions("Открыта форма Login на сайте TestRail");
-        actualTestCase.setSteps("Заполнить поле email. Заполнить поле password. Нажать кнопку login");
-        actualTestCase.setExpectedResult("Пользователь авторизован");
+        TestCase actualTestCase = TestCase.builder()
+                .setTitle("Позитивное тестирование формы Login")
+                .setSection("Test Cases")
+                .setTemplate("Test Case (Text)")
+                .setType("Other")
+                .setPriority("Critical")
+                .setEstimate("30 minutes")
+                .setReferences("qwe")
+                .setAutomationType("None")
+                .setPreconditions("Открыта форма Login на сайте TestRail")
+                .setSteps("Заполнить поле email. Заполнить поле password. Нажать кнопку login")
+                .setExpectedResult("Пользователь авторизован")
+                .build();
         String projectName = "AnnaYedoshinaQA24";
         loginPage.logIn(EMAIL, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
@@ -29,7 +30,7 @@ public class AddTestCaseTests extends BaseTest {
         addTestCasePage.clickAddTestCaseButton();
         Assert.assertTrue(addedTestCasePage.isAddAnotherLinkDisplayed());
         TestCase expectedTestCase = testCaseInfoPage.getTestCaseInfo();
-        Assert.assertEquals(expectedTestCase,actualTestCase);
+        Assert.assertEquals(expectedTestCase, actualTestCase);
 
 
     }

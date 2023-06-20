@@ -24,7 +24,6 @@ public class Input {
     }
 
     public void setValue(CharSequence... value) {
-        // Additional actions
         element.sendKeys(value);
     }
 

@@ -4,10 +4,12 @@ import elements.Button;
 import elements.Dropdown;
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class AddTestCasePage extends BasePage {
     public AddTestCasePage(WebDriver driver) {
         super(driver);
