@@ -33,7 +33,7 @@ public class Dropdown {
     public void selectOptionByText(String text, boolean shouldSearch) {
         expand();
         if (shouldSearch) {
-            element.findMyElement(By.cssSelector("input[type=text]")).sendKeys(text);
+            element.findMyElement(By.id("chzn-single")).sendKeys(text);
         }
         for (MyElement element : getAllOptions()) {
             if (element.getText().equals(text)) {
@@ -53,6 +53,6 @@ public class Dropdown {
     }
 
     private void expand() {
-        element.findMyElement(By.tagName("a")).click();
+        element.findMyElement(By.xpath("//a[@class = 'chzn-single']//div/b")).click();
     }
 }

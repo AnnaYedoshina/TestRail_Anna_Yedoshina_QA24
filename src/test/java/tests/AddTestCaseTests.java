@@ -1,7 +1,8 @@
 package tests;
-
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonTypeInfo;
 import models.TestCase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ProjectPage;

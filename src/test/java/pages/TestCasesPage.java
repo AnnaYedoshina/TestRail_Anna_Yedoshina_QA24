@@ -16,6 +16,7 @@ public class TestCasesPage extends BasePage {
 
     @Step
     public void checkCheckboxChooseAll() {
+        log.info("Checking checkboxChooseAll");
         new Checkbox(driver, checkBoxesLocator).check();
 
     }

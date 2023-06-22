@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.openqa.selenium.support.ui.Select;
 
 
 @Builder(setterPrefix = "set")

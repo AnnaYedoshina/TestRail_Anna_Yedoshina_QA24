@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -17,6 +18,7 @@ public abstract class BaseTest {
     protected final static String EMAIL = "yedoshina.java@gmail.com";
     protected final static String PASSWORD = "Anna6178!";
     protected WebDriver driver;
+    protected WebDriverWait wait;
     protected LoginPage loginPage;
     protected AllProjectsPage allProjectsPage;
     protected AddTestCasePage addTestCasePage;
@@ -26,6 +28,7 @@ public abstract class BaseTest {
     protected AddTestRunPage addTestRunPage;
     protected AddMilestonePage addMilestonePage;
     protected TestCaseInfoPage testCaseInfoPage;
+    protected MilestonesPage milestonesPage;
 
     @Parameters({"browserName"})
     @BeforeClass(alwaysRun = true)
@@ -49,6 +52,7 @@ public abstract class BaseTest {
         addTestRunPage = new AddTestRunPage(driver);
         addMilestonePage = new AddMilestonePage(driver);
         testCaseInfoPage = new TestCaseInfoPage(driver);
+        milestonesPage = new MilestonesPage(driver);
 
     }
 

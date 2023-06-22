@@ -20,9 +20,9 @@ public class AddTestCasePage extends BasePage {
     private String preconditionsInputId = "custom_preconds_display";
     private String stepsInputId = "custom_steps_display";
     private String expectedResultInputId = "custom_expected_display";
-    private By sectionDropdownLocator = By.xpath("//span[text() = 'Test Cases']");
-    private By templateDropdownLocator = By.xpath("//span[text() = 'Test Case (Text)']");
-    private String typeDropdownId = "type_id";
+    private By sectionDropdownLocator = By.id("section_id_chzn");
+    private By templateDropdownLocator = By.id("template_id_chzn");
+    private String typeDropdownId = "type_id_chzn";
     private By priorityDropdownLocator = By.xpath("//div[@id = 'priority_id_chzn']");
     private By estimateInputLocator = By.cssSelector("input[name = estimate]");
     private String referencesInputId = "refs";
@@ -36,11 +36,12 @@ public class AddTestCasePage extends BasePage {
 
     @Step
     public void fillingOutTestCase(TestCase testCase) {
+        log.info(String.format("Filling out testCase = %s", testCase));
         new Input(driver, titleInputId).setValue(testCase.getTitle());
-        new Dropdown(driver, sectionDropdownLocator).selectOptionByText(testCase.getSection(), false);
+        new Dropdown(driver, sectionDropdownLocator).selectOptionByText(testCase.getSection().toString(), false);
         new Dropdown(driver, templateDropdownLocator).selectOptionByText(testCase.getTemplate(), false);
         new Dropdown(driver, typeDropdownId).selectOptionByText(testCase.getType(), false);
-        new Dropdown(driver, priorityDropdownLocator).selectOptionByText(testCase.getPriority(), false);
+        new Dropdown(driver, priorityDropdownLocator).selectOptionByText(testCase.getPriority().toString(), false);
         new Input(driver, estimateInputLocator).setValue(testCase.getEstimate());
         new Input(driver, referencesInputId).setValue(testCase.getReferences());
         new Dropdown(driver, automationTypeDropdownId).selectOptionByText(testCase.getAutomationType(), false);
@@ -51,6 +52,7 @@ public class AddTestCasePage extends BasePage {
 
     @Step
     public void clickAddTestCaseButton() {
+        log.info("Clicking addTestCaseButton");
         new Button(driver, addTestCaseButtonId).click();
     }
 

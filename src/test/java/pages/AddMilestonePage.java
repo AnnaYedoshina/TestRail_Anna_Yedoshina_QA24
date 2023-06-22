@@ -31,17 +31,20 @@ public class AddMilestonePage extends BasePage {
 
     @Step
     public void checkCompletedMilestoneCheckbox() {
+        log.info("Checking completedMilestoneCheckbox");
         new Checkbox(driver, isCompletedCheckboxLocator).check();
 
     }
 
     @Step
     public boolean isCompletedMilestoneCheckboxChecked() {
+        log.info("Checking up is completedMilestoneCheckbox checked");
         return new Checkbox(driver, isCompletedCheckboxLocator).isChecked();
     }
 
     @Step
     public void clickAddMilestoneButton() {
+        log.info("Clicking addMilestoneButton");
         new Button(driver, addMilestoneButtonLocator).click();
     }
 
