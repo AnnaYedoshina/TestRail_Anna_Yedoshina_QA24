@@ -16,7 +16,7 @@ public class MyElement implements WebElement {
         this.element = driver.findElement(this.by);
     }
 
-    public MyElement(WebDriver driver,WebElement element) {
+    public MyElement(WebDriver driver, WebElement element) {
         this.driver = driver;
         this.element = element;
     }

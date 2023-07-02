@@ -14,9 +14,9 @@ import java.time.Duration;
 
 @Listeners({InvokedListener.class})
 public abstract class BaseTest {
-    private final static String URL = "https://ayqa24.testrail.io/";
-    protected final static String EMAIL = "yedoshina.java@gmail.com";
-    protected final static String PASSWORD = "Anna6178!";
+    private final static String BASE_URL = "https://ayqa241.testrail.io/";
+    protected final static String USERNAME = "ayqa24@mailinator.com";
+    protected final static String PASSWORD = "Ayqa241!";
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected LoginPage loginPage;
@@ -63,7 +63,7 @@ public abstract class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void navigate() {
-        driver.get(URL);
+        driver.get(BASE_URL);
     }
 
     @AfterMethod(alwaysRun = true)

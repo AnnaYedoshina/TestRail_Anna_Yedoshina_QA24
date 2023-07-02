@@ -8,7 +8,7 @@ public class AddTestRunPageTests extends BaseTest {
     @Test
     public void checkSelectSpecificRadioTest() {
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL, PASSWORD);
+        loginPage.logIn(USERNAME, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickAddTestRunsButton();
         addTestRunPage.checkSelectSpecificRadio();

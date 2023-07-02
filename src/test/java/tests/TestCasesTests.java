@@ -8,7 +8,7 @@ public class TestCasesTests extends BaseTest {
     @Test
     public void checkCheckBoxChooseAllTest() {
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL, PASSWORD);
+        loginPage.logIn(USERNAME, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickTestCasesButton();
         testCasesPage.checkCheckboxChooseAll();
@@ -19,7 +19,7 @@ public class TestCasesTests extends BaseTest {
     @Test
     public void uncheckCheckboxChooseAllTest() {
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL, PASSWORD);
+        loginPage.logIn(USERNAME, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickTestCasesButton();
         testCasesPage.checkCheckboxChooseAll();

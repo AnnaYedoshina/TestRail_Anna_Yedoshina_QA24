@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Step;
 import models.Milestone;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,12 +8,12 @@ public class MilestoneTests extends BaseTest {
 
     @Test
     public void positiveAddMilestoneTest() {
-        Milestone milestone = new Milestone.MilestoneBuilder("1")
+        Milestone milestone = Milestone.builder()
                 .setReferences("qwe")
                 .setDescription("first milestone")
                 .build();
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL, PASSWORD);
+        loginPage.logIn(USERNAME, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickAddMilestoneButton();
         addMilestonePage.fillMilestone(milestone);
@@ -25,21 +24,22 @@ public class MilestoneTests extends BaseTest {
 
 
     }
+
     @Test
-    public void deleteMilestoneTest(){
-        Milestone milestone = new Milestone.MilestoneBuilder("1")
+    public void deleteMilestoneTest() {
+        Milestone milestone = Milestone.builder()
                 .setReferences("qwe")
                 .setDescription("first milestone")
                 .build();
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL, PASSWORD);
+        loginPage.logIn(USERNAME, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickAddMilestoneButton();
         addMilestonePage.fillMilestone(milestone);
         addMilestonePage.checkCompletedMilestoneCheckbox();
         Assert.assertTrue(addMilestonePage.isCompletedMilestoneCheckboxChecked());
         addMilestonePage.clickAddMilestoneButton();
-       // milestonesPage.deleteMilestone();
+        //milestonesPage.deleteMilestone();
 
     }
 }

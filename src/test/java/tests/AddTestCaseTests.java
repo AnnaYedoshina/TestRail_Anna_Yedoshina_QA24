@@ -1,11 +1,8 @@
 package tests;
-import io.qameta.allure.internal.shadowed.jackson.annotation.JsonTypeInfo;
+
 import models.TestCase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.ProjectPage;
 
 public class AddTestCaseTests extends BaseTest {
     @Test
@@ -13,9 +10,9 @@ public class AddTestCaseTests extends BaseTest {
         TestCase actualTestCase = TestCase.builder()
                 .setTitle("Позитивное тестирование формы Login")
                 .setSection("Test Cases")
-                .setTemplate("Test Case (Text)")
+                .setTemplate(null)
                 .setType("Other")
-                .setPriority("Critical")
+                .setPriority("Medium")
                 .setEstimate("30 minutes")
                 .setReferences("qwe")
                 .setAutomationType("None")
@@ -24,7 +21,7 @@ public class AddTestCaseTests extends BaseTest {
                 .setExpectedResult("Пользователь авторизован")
                 .build();
         String projectName = "AnnaYedoshinaQA24";
-        loginPage.logIn(EMAIL, PASSWORD);
+        loginPage.logIn(USERNAME, PASSWORD);
         allProjectsPage.openProjectByName(projectName);
         projectPage.clickAddTestCasesLink();
         addTestCasePage.fillingOutTestCase(actualTestCase);

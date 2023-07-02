@@ -9,24 +9,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
-public class MilestonesPage extends BasePage{
+public class MilestonesPage extends BasePage {
     public MilestonesPage(WebDriver driver) {
         super(driver);
     }
+
     private String allMilesTonesId = ("content-inner");
 
     private By deleteMilestonesButtonId = By.id("delete-milestones");
 
     private By milestoneCheckboxLocator = By.xpath("//input[type = 'checkbox']");
+
     @Step
-    public boolean isMilestoneAdded(){
+    public boolean isMilestoneAdded() {
         log.info("Checking is milestone added");
         return driver.findElement(By.id(allMilesTonesId)).isDisplayed();
 
     }
+
     @Step
-    public void deleteMilestone(){
-        new Select(driver.findElement(By.id(allMilesTonesId))).selectByVisibleText("1");
-        new Button(driver,deleteMilestonesButtonId).click();
+    public void deleteMilestone(Milestone milestone) {
+        new Select(driver.findElement(By.id(allMilesTonesId))).selectByVisibleText(milestone.getName());
+        new Button(driver, deleteMilestonesButtonId).click();
     }
 }

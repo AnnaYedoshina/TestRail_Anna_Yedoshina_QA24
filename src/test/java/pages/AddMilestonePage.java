@@ -19,11 +19,12 @@ public class AddMilestonePage extends BasePage {
     private String nameInputId = "name";
     private String referencesInputId = "reference";
     private String descriptionInputId = "description_display";
-    private By isCompletedCheckboxLocator = By.id("is_completed");
+    private By isCompletedCheckboxLocator = By.className("dirty-trackable");
     private By addMilestoneButtonLocator = By.id("accept");
 
     @Step
     public void fillMilestone(Milestone milestone) {
+        log.info("Filling out milestone = %s", milestone);
         new Input(driver, nameInputId).setValue(milestone.getName());
         new Input(driver, referencesInputId).setValue(milestone.getReferences());
         new Input(driver, descriptionInputId).setValue(milestone.getDescription());
