@@ -10,7 +10,6 @@ public class AddTestCaseTests extends BaseTest {
         TestCase actualTestCase = TestCase.builder()
                 .setTitle("Позитивное тестирование формы Login")
                 .setSection("Test Cases")
-                .setTemplate(null)
                 .setType("Other")
                 .setPriority("Medium")
                 .setEstimate("30 minutes")

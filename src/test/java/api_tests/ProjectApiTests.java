@@ -69,7 +69,7 @@ public class ProjectApiTests extends BaseApiTest {
 
     @Test
     public void createProjectFromFile() {
-        File file = new File(System.getProperty("user.dir") + "/src/test/resources/requestBody.json");
+        File file = new File(System.getProperty("user.dir") + "/src/test/resources/requestProjectBody.json");
         given()
                 .body(file)
                 .when()
