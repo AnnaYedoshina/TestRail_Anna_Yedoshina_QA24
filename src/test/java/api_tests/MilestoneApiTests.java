@@ -1,8 +1,10 @@
 package api_tests;
 
+import com.jayway.jsonpath.JsonPath;
 import io.restassured.mapper.ObjectMapperType;
 import models.Milestone;
 import models.TestCase;
+import net.minidev.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -30,8 +32,8 @@ public class MilestoneApiTests extends BaseApiTest {
         Assert.assertEquals(actualMilestone, expectedMilestone);
     }
 
-    @BeforeTest
-    public void addMilestone() {
+    @Test
+    public void addNewMilestone() {
         Milestone expectedMilestone = Milestone.builder()
                 .setName("Release 1.0")
                 .setDescription("New features added")
@@ -47,6 +49,22 @@ public class MilestoneApiTests extends BaseApiTest {
                 .statusCode(SC_OK)
                 .extract().as(Milestone.class, ObjectMapperType.GSON);
         Assert.assertEquals(expectedMilestone, actualMilestone);
+    }
+
+    @BeforeTest
+    public void addMilestone() {
+        Milestone milestone = Milestone.builder()
+                .setName("Release 1.0")
+                .setDescription("New features added")
+                .setReferences("RF-1")
+                .build();
+        given()
+                .pathParam("project_id", 7)
+                .body(milestone, ObjectMapperType.GSON)
+                .when()
+                .post("index.php?/api/v2/add_milestone/{project_id}")
+                .then()
+                .log().all();
     }
 
     @Test

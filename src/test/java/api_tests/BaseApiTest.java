@@ -12,7 +12,9 @@ public class BaseApiTest {
     private static final String BASE_URL = "https://ayqa241.testrail.io/";
     private static final String USERNAME = "ayqa24@mailinator.com";
     private static final String PASSWORD = "Ayqa241!";
-    private static final int Project_ID = 3;
+    private final int project_id = 7;
+    private final int suite_id = 1;
+
 
     @BeforeTest
     public void setup() {
